@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自我介绍 - 我的个人主页</title>
+    <style>
+        /* 基本的页面样式 */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .section {
+            margin: 20px 0;
+        }
+
+        h2 {
+            font-size: 2em;
+            color: #4CAF50;
+        }
+
+        p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .skills {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .skills div {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            text-align: center;
+        }
+
+        .skills div img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .contact-info {
+            background-color: #f5f5f5;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .contact-info a {
+            color: #007BFF;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* 修改按钮大小 */
+.button {
+    margin-top: 20px;
+    padding: 12px 25px;  /* 增加按钮内边距 */
+    background-color: #4CAF50;
+    color: white;
+    font-size: 1.5em;     /* 增加字体大小 */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #45a049;
+}
+
+/* 增加大的按钮样式 */
+.large-button {
+    padding: 15px 30px;  /* 增加按钮内边距 */
+    font-size: 1.8em;     /* 增加字体大小 */
+    width: 250px;         /* 设置宽度 */
+    margin-top: 30px;     /* 调整按钮上方间距 */
+}
+
+
+        /* 小屏幕响应式布局 */
+        @media (max-width: 600px) {
+            .skills {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .skills div {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 页面头部 -->
+    <header>
+        <h1>你好！我是罗海鹏</h1>
+        <p>欢迎访问我的个人主页</p>
+    </header>
+
+    <!-- 页面主体 -->
+    <main>
+        <!-- 自我介绍部分 -->
+        <div class="section">
+            <h2>关于我</h2>
+            <p>
+                大家好，我是罗海鹏，目前是一名大学生。我对运动，学习非常热衷，喜欢通过不断学习技能来不断提升自己。
+            </p>
+            <p>
+                我的目标是不断挑战自己，在专业领域中不断学习和进步，同时也希望能结交更多志同道合的朋友。
+            </p>
+        </div>
+
+        <!-- 我的技能部分 -->
+        <div class="section">
+            <h2>我的技能</h2>
+            <div class="skills">
+                <div>
+                    <img src="zwjs1.png" alt="技能1">
+                    <h3>技能 1</h3>
+                    <p>打乒乓球</p>
+                </div>
+                <div>
+                    <img src="zwjs2.png" alt="技能2">
+                    <h3>技能 2</h3>
+                    <p>打羽毛球</p>
+                </div>
+                <div>
+                    <img src="zwjs3.png" alt="技能3">
+                    <h3>技能 3</h3>
+                    <p>阅读书籍</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 联系方式部分 -->
+        <div class="contact-info">
+            <h2>联系我</h2>
+            <p>如果你对我的工作或兴趣有任何问题，欢迎通过以下方式联系我：</p>
+            <p><a href="mailto:your.email@example.com">发送邮件</a></p>
+        </div>
+
+        <div class="section">
+            <h2>点击下面按钮，查看更多内容</h2>
+            <button class="button large-button" onclick="window.location.href='wz.html';">我的常用网站展示</button>
+        </div>
+        
+    </main>
+
+    <!-- 页面底部 -->
+    <footer>
+        <p>&copy; 2024罗海鹏- 版权所有</p>
+    </footer>
+
+</body>
+</html>
