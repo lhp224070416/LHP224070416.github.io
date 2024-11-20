@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网站频道展示</title>
+    <style type="text/css">
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        h2 {
+            color: #0000FF;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .category {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .category a {
+            display: inline-block;
+            width: 180px;
+            margin: 10px;
+            padding: 15px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            text-decoration: none;
+            color: #000;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .category a:hover {
+            background-color: #ddd;
+        }
+        .iframe-container {
+            display: none; /* 初始不显示iframe */
+            justify-content: center;
+            margin-top: 30px;
+            text-align: center;
+        }
+        .iframe-container iframe {
+            border: 1px solid #ccc;
+            width: 300px;
+            height: 300px;
+            margin: 10px;
+            display: inline-block;
+        }
+        .back-button {
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            font-size: 18px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            width: 200px;
+        }
+        .back-button:hover {
+            background-color: #45a049;
+        }
+        .link {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .link:hover {
+            text-decoration: underline;
+        }
+        .local-back-button {
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            font-size: 18px;
+            background-color: #FF5722;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            width: 200px;
+        }
+        .local-back-button:hover {
+            background-color: #FF3D00;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>欢迎来到我的常用网站展示</h2>
+
+    <!-- 网站分类区域 -->
+    <div class="category">
+        <a href="javascript:void(0);" onclick="changeCategory('shopping')">购物频道</a>
+        <a href="javascript:void(0);" onclick="changeCategory('video')">视频频道</a>
+        <a href="javascript:void(0);" onclick="changeCategory('learning')">学习频道</a>
+        <a href="javascript:void(0);" onclick="changeCategory('travel')">出行频道</a>
+        <a href="javascript:void(0);" onclick="changeCategory('music')">音乐频道</a>
+    </div>
+
+    <!-- 网站频道的iframe区域（初始隐藏） -->
+    <div id="iframe-container" class="iframe-container">
+        <div class="iframe-item">
+            <iframe id="iframe1" name="iframe1"></iframe>
+            <a id="link1" class="link" href="#" target="_blank">官网</a>
+        </div>
+        <div class="iframe-item">
+            <iframe id="iframe2" name="iframe2"></iframe>
+            <a id="link2" class="link" href="#" target="_blank">官网</a>
+        </div>
+        <div class="iframe-item">
+            <iframe id="iframe3" name="iframe3"></iframe>
+            <a id="link3" class="link" href="#" target="_blank">官网</a>
+        </div>
+    </div>
+
+    <!-- 返回按钮 -->
+    <a href="javascript:void(0);" class="back-button" onclick="goBack()">返回频道选择</a>
+
+    <!-- 返回到本地文件按钮 -->
+    <a href="index.html" class="local-back-button">返回自我介绍</a>
+
+    <script>
+        // 定义每个分类对应的网站链接
+        const categories = {
+            shopping: [
+                { name: '淘宝', url: 'https://www.taobao.com' },
+                { name: '拼多多', url: 'https://www.pinduoduo.com/' },
+                { name: '转转', url: 'https://www.zhuanzhuan.com/' }
+            ],
+            video: [
+                { name: '哔哩哔哩', url: 'https://www.bilibili.com' },
+                { name: '快手', url: 'https://kuaishou.cn/?isHome=1' },
+                { name: '搜狐', url: 'https://tv.sohu.com/' }
+            ],
+            learning: [
+                { name: 'CSDN', url: 'https://www.csdn.net' },
+                { name: '慕课网', url: 'https://www.imooc.com' },
+                { name: '作业帮', url: 'https://www.zybang.com/' }
+            ],
+            travel: [
+                { name: '高德地图', url: 'https://www.amap.com' },
+                { name: '百度地图', url: 'https://map.baidu.com' },
+                { name: '腾讯地图', url: 'https://map.qq.com' }
+            ],
+            music: [
+                { name: '网易云音乐', url: 'https://music.163.com' },
+                { name: 'QQ音乐', url: 'https://y.qq.com/n/ryqq/profile' },
+                { name: '酷我音乐', url: 'https://kuwo.cn' }
+            ]
+        };
+
+        // 切换频道并显示对应的网站
+        function changeCategory(category) {
+            const iframeContainer = document.getElementById('iframe-container');
+            const links = categories[category];
+            
+            // 显示iframe容器
+            iframeContainer.style.display = 'flex';
+
+            // 为每个iframe加载对应的网站链接
+            const iframes = document.querySelectorAll('iframe');
+            const linkElements = document.querySelectorAll('.link');
+            links.forEach((link, index) => {
+                if (iframes[index]) {
+                    iframes[index].src = link.url;
+                    linkElements[index].href = link.url; // 设置超链接
+                    linkElements[index].textContent = `${link.name} 官网`; // 更新超链接文本
+                }
+            });
+        }
+
+        // 返回频道选择界面，隐藏iframe区域
+        function goBack() {
+            const iframeContainer = document.getElementById('iframe-container');
+            iframeContainer.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
